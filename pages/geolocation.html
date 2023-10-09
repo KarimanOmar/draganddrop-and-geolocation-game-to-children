@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="goTogeolocation()"> Go To The Location On Map </button>
+    <script>
+        function goTogeolocation(){
+            navigator.geolocation.getCurrentPosition(setposition)
+        }
+        // goTogeolocation()
+        function setposition(object){
+            longitude= object.coords.longitude
+            latitude=object.coords.latitude
+            goToLocation(latitude,longitude)
+        }
+        function goToLocation(latitude,longitude){
+            let url="https://www.google.com/maps/@"+latitude+","+longitude+",14z"
+            open(url,"_blank")
+        }
+    </script>
+</body>
+</html>
